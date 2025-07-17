@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Footer</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
+</head>
+<body>
+
+    <footer class="bg-gray-800 text-white p-4 mt-8 shadow-inner">
+		<span sec:authorize="isAuthenticated()">
+		                        <form th:action="@{/logout}" method="post">
+		                            <button type="submit"
+		                                    class="bg-primary-600 hover:bg-indigo-500 text-white font-bold py-2 px-4 rounded-md shadow-sm transition-colors flex items-center">
+		                                 Logout
+		                            </button>
+		                        </form>
+		                    </span>
+        <div class="container mx-auto text-center text-sm">
+            <p>&copy; <span th:text="${#dates.format(#dates.createNow(), 'yyyy')}">2023</span> Personal Bookmarking Site.</p>
+        </div>
+    </footer>
+
+</body>
+</html>

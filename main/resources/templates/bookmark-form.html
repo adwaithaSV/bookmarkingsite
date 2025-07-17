@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title th:text="${bookmark.id == null ? 'Add New Bookmark' : 'Edit Bookmark'}">Bookmark Form</title>
+    <link rel="stylesheet" th:href="@{/css/style.css}">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-100 font-sans min-h-screen flex flex-col">
+
+    <div th:replace="~{partials/header :: header}"></div>
+
+    <div class="flex-grow flex items-center justify-center p-4">
+        <div class="bg-white p-8 rounded-lg shadow-md w-full max-w-lg">
+            <h2 class="text-2xl font-bold text-center text-gray-800 mb-6"
+                th:text="${bookmark.id == null ? 'Add New Bookmark' : 'Edit Bookmark'}">
+                Bookmark Form
+            </h2>
+
+            <div th:if="${errorMessage}" class="bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded relative mb-4" role="alert">
+                <span class="block sm:inline" th:text="${errorMessage}"></span>
+            </div>
+
+            <div th:if="${successMessage}" class="bg-green-100 border border-green-400 text-green-700 px-4 py-3 rounded relative mb-4" role="alert">
+                <span class="block sm:inline" th:text="${successMessage}"></span>
+            </div>
+
+            <form th:action="@{${bookmark.id == null ? '/bookmarks/add' : '/bookmarks/edit/' + bookmark.id}}" th:object="${bookmark}" method="post" class="space-y-4">
+                <div>
+                    <label for="title" class="block text-sm font-medium text-gray-700 mb-1">Title</label>
+                    <input type="text" id="title" name="title" th:field="*{title}"
+                           class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm text-black"
+                           placeholder="Enter bookmark title" required>
+                    <span th:if="${#fields.hasErrors('title')}" th:errors="*{title}" class="text-red-500 text-xs mt-1"></span>
+                </div>
+
+                <div>
+                    <label for="url" class="block text-sm font-medium text-gray-700 mb-1">URL</label>
+                    <input type="url" id="url" name="url" th:field="*{url}"
+                           class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm text-black"
+                           placeholder="Enter bookmark URL (e.g., https://example.com)" required>
+                    <span th:if="${#fields.hasErrors('url')}" th:errors="*{url}" class="text-red-500 text-xs mt-1"></span>
+                </div>
+
+                <div class="flex justify-end space-x-3">
+                    <a th:href="@{/bookmarks}"
+                       class="inline-flex items-center px-4 py-2 border border-gray-300 rounded-md shadow-sm text-sm font-medium text-gray-700 bg-white hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
+                        Cancel
+                    </a>
+                    <button type="submit"
+                            class="inline-flex items-center px-4 py-2 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
+                        <span th:text="${bookmark.id == null ? 'Add Bookmark' : 'Save Changes'}">Save</span>
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <div th:replace="~{partials/footer :: footer}"></div>
+
+</body>
+</html>
