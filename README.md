@@ -45,7 +45,7 @@ Maven (usually comes with your IDE or can be installed separately)
 MySQL Database Server running locally (e.g., via XAMPP, Docker, or direct installation)
 
 1. Clone the Repository
-git clone https://github.com/your-username/bookmark.git
+git clone https://github.com/adwaithaSV/bookmark.git
 cd bookmark
 
 2. Database Setup (MySQL)
@@ -71,7 +71,7 @@ spring.thymeleaf.cache=false
 spring.thymeleaf.prefix=classpath:/templates/
 spring.thymeleaf.suffix=.html
 
-Note: spring.jpa.hibernate.ddl-auto=create is useful for development as it ensures a clean database schema on every restart. For production, you would typically use update or none and manage schema changes via migrations (e.g., Flyway, Liquibase).
+Note: spring.jpa.hibernate.ddl-auto=create is useful for development as it ensures a clean database schema on every restart. For production, you would typically use update or none and manage schema changes via migrations.
 
 3. Build the Project
 Open your terminal in the bookmark project root directory and run:
