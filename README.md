@@ -35,60 +35,6 @@ Font Awesome: For icons.
 Build Tool:
 Maven: Project management and comprehension tool.
 
-📁 Project Structure
-bookmark/
-├── src/
-│   ├── main/
-│   │   ├── java/
-│   │   │   └── com/
-│   │   │       └── example/
-│   │   │           └── bookmark/
-│   │   │               ├── BookmarkApplication.java       # Main Spring Boot application
-│   │   │               ├── config/                        # Security configurations
-│   │   │               │   └── SecurityConfig.java
-│   │   │               ├── controller/                    # Handles web requests
-│   │   │               │   ├── AuthenticationController.java
-│   │   │               │   └── BookmarkController.java
-│   │   │               ├── model/                         # JPA Entities
-│   │   │               │   ├── User.java
-│   │   │               │   ├── Role.java
-│   │   │               │   └── Bookmark.java
-│   │   │               ├── repository/                    # Spring Data JPA Repositories
-│   │   │               │   ├── UserRepository.java
-│   │   │               │   ├── RoleRepository.java
-│   │   │               │   └── BookmarkRepository.java
-│   │   │               ├── service/                       # Business logic
-│   │   │               │   ├── UserService.java
-│   │   │               │   └── BookmarkService.java
-│   │   │               └── dto/                           # Data Transfer Objects
-│   │   │                   ├── RegistrationDTO.java
-│   │   │                   └── LoginResponseDTO.java
-│   │   │
-│   │   └── resources/
-│   │       ├── static/
-│   │       │   └── css/
-│   │       │       └── style.css                          # Custom CSS
-│   │       │
-│   │       ├── templates/
-│   │       │   ├── login.html                           # Login page
-│   │       │   ├── signup.html                          # Registration page
-│   │       │   ├── bookmark-list.html                   # Bookmark listing page
-│   │       │   ├── bookmark-form.html                   # Add/Edit bookmark form
-│   │       │   └── partials/                            # Reusable HTML fragments
-│   │       │       ├── header.html
-│   │       │       └── footer.html
-│   │       │
-│   │       └── application.properties                   # Application configuration
-│   │
-│   └── test/
-│       └── java/
-│           └── com/
-│               └── example/
-│                   └── bookmark/
-│                       └── BookmarkApplicationTests.java
-│
-└── pom.xml                                            # Maven project file
-
 🏁 Getting Started
 Follow these instructions to get a copy of the project up and running on your local machine for development and testing purposes.
 
