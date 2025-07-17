@@ -68,8 +68,8 @@ git clone https://github.com/adwaithaSV/bookmark.git
 
 cd bookmark
 
-3. Database Setup (MySQL)
-4. 
+2. Database Setup (MySQL)
+ 
 Create Database:
 Open your MySQL client (e.g., MySQL Workbench, command line) and create a new database named bookmark_db:
 
